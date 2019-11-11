@@ -13,20 +13,23 @@ export class EquipmentDetailsService {
   }
 
   public findOne(id: string): Observable<Equipment> {
-    let username=sessionStorage.getItem("username");
-    let password=sessionStorage.getItem("password");
+    let token =sessionStorage.getItem("token");
 
-
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password)});
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token
+    });
 
     return this.http.get<Equipment>(this.equipmentDetailsUrl + id, {headers});
   }
 
   public save(id: string, equipment: Equipment) {
-    let username=sessionStorage.getItem("username");
-    let password=sessionStorage.getItem("password");
+    let token =sessionStorage.getItem("token");
 
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password)});
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token
+    });
 
     return this.http.post<Equipment>(this.equipmentDetailsUrl + id, equipment, {headers});
   }

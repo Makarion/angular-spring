@@ -13,10 +13,12 @@ export class EquipmentService {
   }
 
   public findAll(): Observable<Equipment[]> {
-    let username=sessionStorage.getItem("username");
     let token=sessionStorage.getItem("token");
 
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + token)});
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token
+    });
 
     return this.http.get<Equipment[]>(this.equipmentUrl, {headers});
   }
