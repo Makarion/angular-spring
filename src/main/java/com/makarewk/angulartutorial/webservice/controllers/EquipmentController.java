@@ -1,7 +1,7 @@
 package com.makarewk.angulartutorial.webservice.controllers;
 
 import com.makarewk.angulartutorial.webservice.enums.StatusEnum;
-import com.makarewk.angulartutorial.webservice.model.UserLogin;
+import com.makarewk.angulartutorial.security.model.UserLogin;
 import com.makarewk.angulartutorial.webservice.repositories.*;
 import com.makarewk.angulartutorial.webservice.entities.*;
 import org.springframework.web.bind.annotation.*;

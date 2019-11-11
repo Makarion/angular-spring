@@ -9,14 +9,14 @@ export class EquipmentService {
   private equipmentUrl: string;
 
   constructor(private http: HttpClient) {
-    this.equipmentUrl = 'http://localhost:8080/equipment/equipmentList';
+      this.equipmentUrl = 'http://localhost:8080/equipment/equipmentList';
   }
 
   public findAll(): Observable<Equipment[]> {
     let username=sessionStorage.getItem("username");
-    let password=sessionStorage.getItem("password");
+    let token=sessionStorage.getItem("token");
 
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password)});
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + token)});
 
     return this.http.get<Equipment[]>(this.equipmentUrl, {headers});
   }

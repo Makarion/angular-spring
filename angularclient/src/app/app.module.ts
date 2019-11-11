@@ -8,8 +8,9 @@ import {AppRoutingModule} from "./app-routing.module";
 import {EquipmentDetailsService} from "./service/equipment-details.service";
 import {EquipmentListComponent} from "./equipment-list/equipment-list.component";
 import {EquipmentFormComponent} from "./equipment-form/equipment-form.component";
-import {EquipmentService} from "./service/equipment-service";
 import {LoginComponent} from "./login/login.component";
+import {EquipmentService} from "./service/equipment.service";
+import {HttpInterceptorService} from "./service/http-interceptor.service";
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import {LoginComponent} from "./login/login.component";
     RouterModule,
     FormsModule
   ],
-  providers: [EquipmentService, EquipmentDetailsService],
+  providers: [EquipmentService, EquipmentDetailsService, HttpInterceptorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
