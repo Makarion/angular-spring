@@ -9,11 +9,13 @@ import {EquipmentDetailsService} from "./service/equipment-details.service";
 import {EquipmentListComponent} from "./equipment-list/equipment-list.component";
 import {EquipmentFormComponent} from "./equipment-form/equipment-form.component";
 import {EquipmentService} from "./service/equipment-service";
+import {LoginComponent} from "./login/login.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     EquipmentListComponent,
     EquipmentFormComponent,
   ],

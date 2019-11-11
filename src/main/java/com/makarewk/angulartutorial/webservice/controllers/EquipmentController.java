@@ -21,13 +21,13 @@ public class EquipmentController {
         this.equipmentRepository = equipmentRepository;
     }
 
-//    @GetMapping(produces = "application/json")
-//    @RequestMapping({ "/validateLogin" })
-//    public UserLogin validateLogin() {
-//        return new UserLogin("User successfully authenticated");
-//    }
+    @GetMapping(produces = "application/json")
+    @RequestMapping({ "/validateLogin" })
+    public UserLogin validateLogin() {
+        return new UserLogin("User successfully authenticated");
+    }
 
-    @GetMapping
+    @GetMapping("equipmentList")
     public List<Equipment> getEquipment() {
         return (List<Equipment>)equipmentRepository.findAll();
     }

@@ -9,12 +9,12 @@ export class EquipmentService {
   private equipmentUrl: string;
 
   constructor(private http: HttpClient) {
-    this.equipmentUrl = 'http://localhost:8080/equipment';
+    this.equipmentUrl = 'http://localhost:8080/equipment/equipmentList';
   }
 
   public findAll(): Observable<Equipment[]> {
-    let username='root';
-    let password='root';
+    let username=sessionStorage.getItem("username");
+    let password=sessionStorage.getItem("password");
 
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password)});
 

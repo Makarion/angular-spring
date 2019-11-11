@@ -13,8 +13,9 @@ export class EquipmentDetailsService {
   }
 
   public findOne(id: string): Observable<Equipment> {
-    let username='root';
-    let password='root';
+    let username=sessionStorage.getItem("username");
+    let password=sessionStorage.getItem("password");
+
 
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password)});
 
@@ -22,8 +23,8 @@ export class EquipmentDetailsService {
   }
 
   public save(id: string, equipment: Equipment) {
-    let username='root';
-    let password='root';
+    let username=sessionStorage.getItem("username");
+    let password=sessionStorage.getItem("password");
 
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password)});
 
