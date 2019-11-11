@@ -2,6 +2,7 @@ package com.makarewk.angulartutorial.security.service;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,10 +12,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
 
+	@Value("$username")
+	private String username;
+
+	@Value("${encrypted.password}")
+	private String encryptedPassword;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		if ("root".equals(username)) {
-			return new User("root", "$2a$04$je628FccY8UcGQPP0hQGAubk2bFa5n3wc/58AH0OJ8kAiOTaX1V9S",
+			return new User(username, encryptedPassword,
 					new ArrayList<>());
 		} else {
 			throw new UsernameNotFoundException("User not found with username: " + username);
