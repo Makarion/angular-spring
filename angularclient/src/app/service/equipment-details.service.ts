@@ -21,12 +21,12 @@ export class EquipmentDetailsService {
     return this.http.get<Equipment>(this.equipmentDetailsUrl + id, {headers});
   }
 
-  public save(user: Equipment, id: string) {
+  public save(id: string, equipment: Equipment) {
     let username='root';
     let password='root';
 
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password)});
 
-    return this.http.post<Equipment>(this.equipmentDetailsUrl + id, {headers});
+    return this.http.post<Equipment>(this.equipmentDetailsUrl + id, equipment, {headers});
   }
 }

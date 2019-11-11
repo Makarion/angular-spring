@@ -27,7 +27,7 @@ export class EquipmentFormComponent{
   }
 
   onSubmit() {
-    this.equipmentDetailsService.save(this.equipment, this.id).subscribe(result => this.gotoUserList());
+    this.equipmentDetailsService.save(this.id, this.equipment).subscribe(result => this.gotoUserList());
   }
 
   gotoUserList() {
