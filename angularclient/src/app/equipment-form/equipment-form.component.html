@@ -1,0 +1,14 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="form-group">
+        <label for="email">Comment</label>
+        <input type="text" [(ngModel)]="equipment.comment"
+               class="form-control" id="email" name="email" placeholder="Please add some desciption"
+               required #comment="ngModel">
+        <div [hidden]="!comment.pristine" class="alert alert-danger">Comment is required</div>
+      </div>
+      <button type="submit" [disabled]="!userForm.form.valid" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

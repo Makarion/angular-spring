@@ -1,0 +1,26 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Details</th>
+        <th scope="col">Comment</th>
+        <th scope="col">Crash report</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let eq of equipment">
+        <td>{{ eq.name }}</td>
+        <td>{{ eq.categoryName }}</td>
+        <td>{{ eq.details }}</td>
+        <td>{{ eq.statusEnum }}</td>
+        <td>{{ eq.comment }}</td>
+        <td><li class="list-inline-item"><a routerLink="/equipmentDetails/{{eq.id}}" class="btn btn-info">Report a damage</a></li></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
