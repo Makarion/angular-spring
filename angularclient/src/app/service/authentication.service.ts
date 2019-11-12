@@ -17,13 +17,28 @@ export class AuthenticationService {
   constructor(private httpClient:HttpClient) {
   }
 
+  // authenticate(username, password) {
+  //   const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+  //   return this.httpClient.get<User>('http://localhost:8080/equipment/validateLogin',{headers}).pipe(
+  //     map(
+  //       userData => {
+  //         sessionStorage.setItem('username',username);
+  //         sessionStorage.setItem('password', password);
+  //         return userData;
+  //       }
+  //     )
+  //
+  //   );
+  // }
+
   authenticate(username, password) {
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpClient.get<User>('http://localhost:8080/equipment/validateLogin',{headers}).pipe(
+    // const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this.httpClient.post<any>('http://localhost:8080/authenticate',{username,password}).pipe(
       map(
         userData => {
           sessionStorage.setItem('username',username);
-          sessionStorage.setItem('password', password)
+          let tokenStr= 'Bearer '+userData.token;
+          sessionStorage.setItem('token', tokenStr);
           return userData;
         }
       )

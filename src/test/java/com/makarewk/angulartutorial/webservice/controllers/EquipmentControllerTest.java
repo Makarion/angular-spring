@@ -45,7 +45,7 @@ public class EquipmentControllerTest {
         List<Equipment> equipmentList = getEquipmentList();
         when(equipmentRepository.findAll()).thenReturn(equipmentList);
 
-        mockMvc.perform(get("/equipment")
+        mockMvc.perform(get("/equipment/equipmentList")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].id").value(Long.valueOf("1")))
                 .andExpect(jsonPath("$[0].name", is("Beko")))

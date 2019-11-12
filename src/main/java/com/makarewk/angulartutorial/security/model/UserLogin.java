@@ -1,4 +1,4 @@
-package com.makarewk.angulartutorial.webservice.model;
+package com.makarewk.angulartutorial.security.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

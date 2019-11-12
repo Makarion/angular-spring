@@ -1,7 +1,7 @@
 package com.makarewk.angulartutorial.webservice.controllers;
 
 import com.makarewk.angulartutorial.webservice.enums.StatusEnum;
-import com.makarewk.angulartutorial.webservice.model.UserLogin;
+import com.makarewk.angulartutorial.security.model.UserLogin;
 import com.makarewk.angulartutorial.webservice.repositories.*;
 import com.makarewk.angulartutorial.webservice.entities.*;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +20,7 @@ public class EquipmentController {
     public EquipmentController(EquipmentRepository equipmentRepository) {
         this.equipmentRepository = equipmentRepository;
     }
-
-    @GetMapping(produces = "application/json")
-    @RequestMapping({ "/validateLogin" })
-    public UserLogin validateLogin() {
-        return new UserLogin("User successfully authenticated");
-    }
+    
 
     @GetMapping("equipmentList")
     public List<Equipment> getEquipment() {
