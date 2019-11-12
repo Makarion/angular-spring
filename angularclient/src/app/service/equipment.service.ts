@@ -14,7 +14,7 @@ export class EquipmentService {
 
   public findAll(): Observable<Equipment[]> {
     let token=sessionStorage.getItem("token");
-    
+
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
