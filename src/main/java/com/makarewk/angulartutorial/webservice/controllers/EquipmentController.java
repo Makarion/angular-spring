@@ -20,12 +20,7 @@ public class EquipmentController {
     public EquipmentController(EquipmentRepository equipmentRepository) {
         this.equipmentRepository = equipmentRepository;
     }
-
-    @GetMapping(produces = "application/json")
-    @RequestMapping({ "/validateLogin" })
-    public UserLogin validateLogin() {
-        return new UserLogin("User successfully authenticated");
-    }
+    
 
     @GetMapping("equipmentList")
     public List<Equipment> getEquipment() {
