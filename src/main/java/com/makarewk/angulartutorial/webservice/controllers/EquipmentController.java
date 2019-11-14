@@ -11,7 +11,7 @@ import java.util.Optional;
 
 
 /**
- * Kontroler
+ * Główny kontroler
  */
 @RestController
 @RequestMapping(path="/equipment")
