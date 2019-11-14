@@ -12,15 +12,28 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+/**
+ * Komponent inicjujący bazę danych
+ */
 @Slf4j
 @Component
 public class DbInitializer {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    /**
+     * konstruktor klasy DbInitializer
+     * @param equipmentRepository - interfejs obsługujący metody CRUD dla bazy danych
+     * @param resourceReader - klasa służąca do wstrzykiwania resourców
+     */
     public DbInitializer(EquipmentRepository equipmentRepository, ResourceReader resourceReader) {
         initializeEquipmentList(equipmentRepository, resourceReader);
     }
 
+    /**
+     *
+     * @param equipmentRepository - interfejs obsługujący metody CRUD dla bazy danych
+     * @param resourceReader - klasa służąca do wstrzykiwania resourców
+     */
     private void initializeEquipmentList(EquipmentRepository equipmentRepository, ResourceReader resourceReader) {
         Resource productsResourcee = resourceReader.getProduct();
 
@@ -51,6 +64,11 @@ public class DbInitializer {
     }
 
 
+    /**
+     * Metoda zwracająca enumaw zależności od zaczytanej z pliku nazwy kategorii
+     * @param categoryName - nazwa kategorii
+     * @return CategoryEnum - enum dla kategorii produktu
+     */
     private static CategoryEnum convert(String categoryName) {
         switch (categoryName) {
             case ("fridge"):
