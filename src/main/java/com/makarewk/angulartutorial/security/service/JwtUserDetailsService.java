@@ -15,6 +15,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 	@Value("$username")
 	private String username;
 
+	//encrypted "root"
 	@Value("${encrypted.password}")
 	private String encryptedPassword;
 

@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
+/**
+ * Klasa zaczytująca resourcy
+ */
 @Configuration
 public class ResourceReader {
 
