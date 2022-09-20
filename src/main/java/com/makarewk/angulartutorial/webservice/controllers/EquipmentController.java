@@ -13,7 +13,6 @@ import java.util.Optional;
 @RequestMapping(path="/equipment")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EquipmentController {
-
     private final EquipmentRepository equipmentRepository;
 
     public EquipmentController(EquipmentRepository equipmentRepository) {
