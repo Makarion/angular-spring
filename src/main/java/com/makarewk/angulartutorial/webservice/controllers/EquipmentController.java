@@ -29,6 +29,11 @@ public class EquipmentController {
     }
 
 
+    @GetMapping(produces = "application/json", path = "/validateLogin")
+    public UserLogin validateLogin() {
+        return new UserLogin("User successfully authenticated");
+    }
+
     /**
      * Endpoint dla listy sprzętów
      */

@@ -8,6 +8,8 @@ import com.makarewk.angulartutorial.webservice.repositories.EquipmentRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
@@ -19,7 +21,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -31,6 +34,9 @@ public class EquipmentControllerTest {
     private EquipmentRepository equipmentRepository;
 
     private MockMvc mockMvc;
+
+    @Captor
+    private ArgumentCaptor<Long> idCaptor;
 
     @Before
     public void init() {
@@ -55,6 +61,8 @@ public class EquipmentControllerTest {
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
+
+        verify(equipmentRepository, times(1)).findAll();
     }
 
     @Test
@@ -75,6 +83,9 @@ public class EquipmentControllerTest {
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
 
+        verify(equipmentRepository, times(1)).findById(idCaptor.capture());
+
+        assertEquals(Optional.of(1L), Optional.of(idCaptor.getValue()));
     }
 
     @Test
